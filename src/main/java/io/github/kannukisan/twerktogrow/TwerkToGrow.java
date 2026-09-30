@@ -10,6 +10,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.block.BonemealSource;
 import net.minecraft.world.level.block.state.BlockState;
 
 public final class TwerkToGrow implements ModInitializer {
@@ -53,14 +54,14 @@ public final class TwerkToGrow implements ModInitializer {
             if (!(blockState.getBlock() instanceof BonemealableBlock growable)) {
                 continue;
             }
-            if (!growable.isValidBonemealTarget(level, pos, blockState)) {
+            if (!growable.isValidBonemealTarget(level, pos, blockState, BonemealSource.INTERACTION)) {
                 continue;
             }
-            if (level.random.nextFloat() > 0.35F) {
+            if (level.getRandom().nextFloat() > 0.35F) {
                 continue;
             }
-            if (growable.isBonemealSuccess(level, level.random, pos, blockState)) {
-                growable.performBonemeal(level, level.random, pos, blockState);
+            if (growable.isBonemealSuccess(level, level.getRandom(), pos, blockState, BonemealSource.INTERACTION)) {
+                growable.performBonemeal(level, level.getRandom(), pos, blockState, BonemealSource.INTERACTION);
                 level.levelEvent(1505, pos, 0);
             }
         }
