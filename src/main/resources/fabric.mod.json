@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "twerk_to_grow",
+  "version": "${version}",
+  "name": "Twerk To Grow",
+  "description": "Repeatedly crouch near plants to accelerate their growth.",
+  "authors": ["Kannuki-san"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["io.github.kannukisan.twerktogrow.TwerkToGrow"]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.3",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}
